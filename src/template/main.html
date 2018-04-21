@@ -1,0 +1,23 @@
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+
+
+<p> Dir</p>
+<ul>
+    {% for item in dirList %}
+    <li><a href="/child{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
+    {% end %}
+</ul>
+
+<p> File</p>
+<ul>
+    {% for item in fileList %}
+    <li><a href="/child{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
+    {% end %}
+</ul>
+
+</body>
+</html>
