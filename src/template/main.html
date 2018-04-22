@@ -8,14 +8,14 @@
 <p> Dir</p>
 <ul>
     {% for item in dirList %}
-    <li><a href="/child{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
+    <li><a href="/dir{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
     {% end %}
 </ul>
 
 <p> File</p>
 <ul>
     {% for item in fileList %}
-    <li><a href="/child{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
+    <li><a href="/image{{parentPath}}/{{ escape(item) }}"> {{parentPath}}/{{ escape(item) }} </a> </li>
     {% end %}
 </ul>
 

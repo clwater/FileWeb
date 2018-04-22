@@ -10,14 +10,21 @@ class MainHandler(tornado.web.RequestHandler):
 class MainHandlerDir(tornado.web.RequestHandler):
     def get(self , child_path):
         dirList , fileList , parentPath= FileUtils.listFile(child_path)
+        # self.redirect(imageurl)
         self.render("template/main.html", title=child_path, dirList=dirList , fileList=fileList
                     ,parentPath = parentPath)
+
+class MainHandlerImage(tornado.web.RequestHandler):
+    def get(self , child_path):
+        print child_path
+        self.redirect('http://23.83.255.85/' + child_path)
 
 
 
 application = tornado.web.Application([
     (r"/", MainHandler),
-    (r"/child/(.*)", MainHandlerDir),
+    (r"/dir/(.*)", MainHandlerDir),
+    (r"/image/(.*)", MainHandlerImage),
 
 ])
 
