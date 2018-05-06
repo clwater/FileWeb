@@ -1,5 +1,7 @@
 import tornado.web
 import FileUtils
+import os
+
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -20,11 +22,31 @@ class MainHandlerImage(tornado.web.RequestHandler):
         self.redirect('http://23.83.255.85/' + child_path)
 
 
+class MainHandlerSaveInfo(tornado.web.RequestHandler):
+    def get(self):
+        fileUrl = self.get_argument('fileUrl', '')
+
+
+        parentPath = self.get_argument('parentPath', '')
+        path = "/service/images"  + parentPath
+
+        print fileUrl
+        # tmp = os.popen('wget ' + fileUrl).readlines()
+        # os.system('cd ' + path)
+        text = path +  ' ' +fileUrl
+        os.system('wget -P ' + text)
+        # self.write('wget -P ' + text)
+        # _path = str(path)
+        # _path = _path.replace('/service/images/' ,'')
+        self.write('wget -P ' + text)
+
+
 
 application = tornado.web.Application([
     (r"/", MainHandler),
     (r"/dir/(.*)", MainHandlerDir),
     (r"/image/(.*)", MainHandlerImage),
+    (r"/save" , MainHandlerSaveInfo)
 
 ])
 

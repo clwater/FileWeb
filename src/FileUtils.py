@@ -2,7 +2,7 @@ import os
 
 def listFile(childPath = ''):
 
-    path = "/Users/gengzhibo/Desktop" + "/" + childPath
+    path = "/service/images" + "/" + childPath
     parentPath = "/" + childPath
     fileList = os.listdir(path)
     isDirList =[]
@@ -14,8 +14,8 @@ def listFile(childPath = ''):
         else :
             isFilelist.insert(0 , checkFile)
             # print checkFile + " is not dir"
-
-
+    isDirList.sort()
+    isFilelist.sort()
     # print(fileList)
 
     return isDirList , isFilelist, parentPath

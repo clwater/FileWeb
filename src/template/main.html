@@ -4,7 +4,13 @@
 </head>
 <body>
 
-
+<form action="/save" method="get">
+    <p>Save File Url: <input type="text" name="fileUrl"  style="width: 100%"/></p>
+    <p>
+        <input type="hidden" name="parentPath" value="{{parentPath}}">
+    </p>
+    <input type="submit" value="Submit" />
+</form>
 <p> Dir</p>
 <ul>
     {% for item in dirList %}
